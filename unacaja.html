@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <label for="">numero:</label>
+    <input type="text" id="caja1" autofocus onblur="calcular()">
+    <button onclick="calcular()">calcular</button>
+    <p id="mensaje3">cantidad:</p>
+    <p id="mensaje2">suma:</p>
+    <p>resta:</p>
+    <p>multiplicacion:</p>
+    <p>promedio:</p>
+    <p id="mensaje"></p>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        function calcular() {
+            var numero = document.getElementById("caja1").value;
+            var mensaje = document.getElementById("mensaje");
+            var mensaje2 = document.getElementById("mensaje2");
+            var mensaje3 = document.getElementById("mensaje3");
+
+            var cantidad = [];
+            cantidad = numero.length;
+            mensaje3.innerHTML= cantidad;
+
+
+            var suma = 0;
+            suma += numero; 
+            mensaje2.innerHTML += numero;
+           
+            
+
+            if (numero == "") {
+                Swal.fire({
+                    position: "top-end",
+                    icon: "error",
+                    title: "error esta vacia",
+                    showConfirmButton: false,
+                    timer: 2000
+                });
+
+            }
+            if (numero>5) {
+                mensaje.innerHTML = "felicitaciones has llegado a 5";
+            }
+            if(isNaN(numero)){
+                alert("no se puede introducir letras");
+
+            }
+
+            if(numero == 0 || numero>2){
+                alert("no son tenidos en cuenta");
+
+            }
+            // if(numero>2){
+            //     alert("no son tenido en cuenta si es mayor a 2")
+
+            // }
+                
+            
+        }
+    </script>
+</body>
+
+</html>

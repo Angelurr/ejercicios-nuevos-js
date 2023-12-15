@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="calcular()" >
+
+    <label for="">caja 1:</label>
+    <input type="text" id="caja1" onmouseout="verificarCajaTextoVacia('caja1')" oninput="habilitarSegundaCaja()" autofocus>
+    <label for="">caja 2:</label>
+    <input type="text" id="caja2" onmouseout="verificarCajaTextoVacia('caja2')" oninput="habilitarBoton()" disabled>
+    <button id="boton" onclick="calcular()" disabled>ACCION</button>
+    <p id="p">resultado:</p>
+
+
+
+
+
+
+
+    <script>
+        function verificarCajaTextoVacia(elementId) {
+            // Obtener el valor de la caja de texto
+            var textoCaja = document.getElementById(elementId).value;
+
+            // Verificar si la caja de texto está vacía
+            if (textoCaja === '') {
+                // Mostrar una alerta si la caja de texto está vacía al salir del mouse
+                alert('La caja de texto está vacía.');
+            }
+        }
+
+    function habilitarSegundaCaja() {
+      document.getElementById("caja2").disabled = false;
+    }
+
+    function habilitarBoton() {
+      document.getElementById("boton").disabled = false;
+    }
+            
+
+
+
+        function calcular(){
+          
+
+            var texto1 = document.getElementById("caja1").value;
+            var texto2 = document.getElementById("caja2").value;
+            var mensaje = document.getElementById("p");
+            var boton = document.getElementById("boton");
+
+           
+            
+            if(isNaN(texto1)|| isNaN(texto2)){
+                alert("solo acepta numeros");
+
+            }
+
+    
+
+            for(let i=1; i<texto2; i++){
+                var multiplicacion = texto1*i;
+              mensaje.innerHTML += texto1+"x"+ i + "=" + multiplicacion +"<br>";
+
+            }
+
+        
+        }
+
+
+    </script>
+    
+</body>
+</html>

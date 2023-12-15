@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="calcular()">boton</button>
+    <p id="mensaj"></p>
+    <p id="mensaj1"></p>
+    
+    <script>
+        function calcular(){
+            var mensaje = document.getElementById("mensaj");
+            var mensaje1 = document.getElementById("mensaj1");
+
+            var array_mul = [
+                { name: "carne", cantidad: 5, valor: 1000 },
+                { name: "pollo", cantidad: 6, valor: 2000 },
+                { name: "verdura", cantidad: 7, valor: 3000 },
+                { name: "sopa", cantidad: 8, valor: 4000 }
+            ]
+            var total1 = 0;
+            var total =0;
+            for (let j = 0; j < array_mul.length; j++) {
+                console.log(array_mul[j].name);
+                console.log(array_mul[j].cantidad);
+                console.log(array_mul[j].valor);
+                total = array_mul[j].cantidad*array_mul[j].valor;
+                total1 += total;
+
+                mensaje.innerHTML += total +"<br>";
+              
+
+
+            }
+            mensaje1.innerHTML += "total ="+total1 +"<br>";
+
+        }
+    </script>
+</body>
+</html>

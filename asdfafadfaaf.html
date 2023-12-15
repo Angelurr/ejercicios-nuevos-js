@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UnaCaja</title>
+    <style>
+        .cuerpo{
+            background-color: blueviolet;
+            text-align: center;
+            padding: 20px;
+            top: 50%;
+            left: 50%;
+            position: absolute;
+            transform: translate(-50%,-50%);
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="cuerpo">
+        <h4>Ingrese el número a múltiplicar y su límite</h4>
+        <input type="text" id="ca1"><br><br>
+        <label id="text"></label><br><br>
+        <button type="button" id="boton" onclick="multi()">Enviar</button>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+
+    numeros = 0;
+    prom = 0;
+    sum = 0;
+    prod = 1;
+    rest = 0;
+
+    function multi(){
+        num1 = parseInt(document.getElementById("ca1").value);
+        texto = "";
+        if(isNaN(num1)==true){
+            Swal.fire({
+                icon: "error",
+                title: "ERROR",
+                text: "Solo puede ingresar números",
+                showConfirmButton: false,
+                timer: 2000,
+              });
+            
+        }
+        else if(num1>9){
+            Swal.fire({
+                icon: "error",
+                title: "ERROR",
+                text: "Solo puede ingresar UN número",
+                showConfirmButton: false,
+                timer: 2000,
+              });
+        }
+        else if(isNaN(num1)==false && num1<10){
+            
+            numeros = numeros+1;
+            sum = sum+num1;
+            rest = num1-rest;
+            prod = prod*num1;
+            prom = (sum/numeros)
+            console.log(numeros);
+            texto =  "Cantidad: "+numeros+"<br>"+"Suma: "+sum+"<br>"+"Resta: "+rest+"<br>"+"Multiplicación: "+prod+"<br>"+"Promedio: "+prom+"<br>";
+            
+        document.getElementById("text").innerHTML = texto;
+        }
+        
+        
+        if(numeros == 5){
+            Swal.fire({
+                icon: "success",
+                title: "FELICIDADES",
+                text: "Ingresó 5 números",
+                showConfirmButton: false,
+                timer: 2000,
+              });
+        }
+        
+    }
+</script>
+</html>
